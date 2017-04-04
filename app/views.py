@@ -22,7 +22,7 @@ def home():
     return render_template('home.html')
 
 @app.route('/api/thumbnails')
-def thumbnails():
+def apithumbnails():
     json = {"error": "null",
             "message": "success",
             "thumbnails": getimg("https://www.walmart.com/ip/54649026")} 
@@ -31,6 +31,10 @@ def thumbnails():
     renderer.headers['Content-Type'] = 'application/json'       
     
     return renderer
+    
+@app.route('/thumbnails/view')
+def thumbnailsview():
+    return render_template('thumbnails.html')
 
 ###
 # The functions below should be applicable to all Flask apps.
